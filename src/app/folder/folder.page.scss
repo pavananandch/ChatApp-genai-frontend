@@ -26,3 +26,65 @@ ion-menu-button {
 #container a {
   text-decoration: none;
 }
+
+.chat-messages {
+  padding: 16px 0;
+}
+
+ion-item {
+  --background: transparent;
+  border: none;
+  box-shadow: none;
+  align-items: flex-start;
+}
+
+ion-item.user {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+ion-item.bot {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+ion-item.user ion-label {
+  color: #fff;
+  border-radius: 18px 18px 4px 18px;
+  margin-left: 8px;
+  margin-right: 0;
+  padding: 10px 16px;
+  word-break: break-word;
+}
+
+ion-item.bot ion-label {
+  background: #f1f0f0;
+  color: #222;
+  border-radius: 18px 18px 18px 4px;
+  margin-right: 8px;
+  margin-left: 0;
+  padding: 10px 16px;
+  max-width: 70%;
+  word-break: break-word;
+}
+
+.profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 12px;
+  background: #eee;
+  border: 1px solid #ccc;
+}
+
+ion-footer.chat-footer {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+ion-input {
+  flex: 1;
+  margin-right: 8px;
+  margin-left: 12px;
+}

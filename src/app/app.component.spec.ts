@@ -17,7 +17,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should have menu labels', () => {
+  it('should have menu history', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const app = fixture.nativeElement;
