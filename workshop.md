@@ -22,6 +22,32 @@ Before you start, make sure you have:
   npm -v
   ```
 
+- **Ollama**  
+  Download and install Ollama from [ollama.ai](https://ollama.ai).  
+  Verify installation:
+  ```sh
+  ollama --version
+  ```
+
+- **Pull the `gemma3` model**  
+  After installing Ollama, pull the required model:
+  ```sh
+  ollama pull gemma3:1b-it-qat
+  ```
+
+- **Test Ollama in the Console**  
+  Run the following command to test the `gemma3` model:
+  ```sh
+  ollama chat gemma3:1b-it-qat
+  ```
+  Example prompts to try in the console:
+  ```
+  You are an expert software developer. Explain the concept of REST APIs.
+  ```
+  ```
+  What is the difference between GET and POST methods in HTTP?
+  ```
+
 ---
 
 ## 2. Create a New Node.js Project
