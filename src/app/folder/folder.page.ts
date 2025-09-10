@@ -47,6 +47,7 @@ export class FolderPage implements OnInit {
   public newMessage = '';
   public messages: Array<{ from: string; text: string }> = [];
   public selectedFile: File | null = null; // To store the selected file
+  public isThinking = false; // To track bot's thinking state
 
   constructor(private dataService: DataService) {}
 
@@ -60,25 +61,29 @@ export class FolderPage implements OnInit {
   }
 
   sendMessage() {
+    const newMessage = this.newMessage;
+    this.newMessage = '';
     if (this.selectedFile) {
       const formData = new FormData();
       formData.append('pdf', this.selectedFile);
-
+      this.isThinking = true; // Bot starts thinking
       this.dataService.sendFile(formData).subscribe((response: any) => {
         this.messages.push({ from: 'bot', text: response.data });
         this.selectedFile = null; // Reset file after sending
+        this.isThinking = false; // Bot finished thinking
         setTimeout(() => this.scrollToBottom(), 100);
       });
-    } else if (this.newMessage.trim()) {
-      this.messages.push({ from: 'user', text: this.newMessage });
+    } else if (newMessage.trim()) {
+      this.messages.push({ from: 'user', text: newMessage });
       setTimeout(() => this.scrollToBottom(), 100);
 
+      this.isThinking = true; // Bot starts thinking
       this.dataService
-        .sendMessage(this.newMessage)
+        .sendMessage(newMessage)
         .subscribe((response: any) => {
           console.log(response.data);
           this.messages.push({ from: 'bot', text: response.data });
-          this.newMessage = '';
+          this.isThinking = false; // Bot finished thinking
           setTimeout(() => this.scrollToBottom(), 100);
         });
     }

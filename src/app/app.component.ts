@@ -1,9 +1,9 @@
 
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonRouterLink } from '@ionic/angular/standalone';
+import { IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader,IonHeader,IonButtons,IonToolbar, IonMenuButton,IonTitle, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonRouterLink } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp } from 'ionicons/icons';
+import { mailOutline, mailSharp, documentOutline, documentsOutline, documentSharp, documentsSharp } from 'ionicons/icons';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +25,11 @@ import { mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutlin
     IonLabel,
     IonRouterLink,
     IonRouterOutlet,
+    IonHeader,
+    IonButtons,
+    IonToolbar,
+    IonMenuButton,
+    IonTitle,
   ],
 })
 export class AppComponent {
@@ -34,10 +39,10 @@ export class AppComponent {
       url: '/folder/chatbot',
       icon: 'mail',
     },
-     {
+    {
       title: 'PDF-Summarizer',
       url: '/folder/pdf-summarizer',
-      icon: 'mail',
+      icon: 'document',
     },
   ];
   public history = [];
@@ -45,18 +50,10 @@ export class AppComponent {
     addIcons({
       mailOutline,
       mailSharp,
-      paperPlaneOutline,
-      paperPlaneSharp,
-      heartOutline,
-      heartSharp,
-      archiveOutline,
-      archiveSharp,
-      trashOutline,
-      trashSharp,
-      warningOutline,
-      warningSharp,
-      bookmarkOutline,
-      bookmarkSharp,
+      documentOutline,
+      documentsOutline,
+      documentSharp,
+      documentsSharp,
     });
   }
 }

@@ -5,7 +5,6 @@
         <img class="profile-img bot" src="assets/bot.svg" alt="Bot" />
         <ion-label>
           <markdown [data]="msg.text"></markdown>
-          <!-- <p>{{ msg.text }}</p> -->
         </ion-label>
       } @else {
         <ion-label>
@@ -17,6 +16,9 @@
   </ion-list>
 </ion-content>
 <ion-footer class="chat-footer">
+  @if(isThinking) {
+  <div class="thinking-text">Bot is thinking...</div>
+  }
   <ion-toolbar>
     @if (folder === 'pdf-summarizer') {
     <ion-buttons slot="start">
