@@ -4,7 +4,8 @@
       @if (msg.from === 'bot') {
         <img class="profile-img bot" src="assets/bot.svg" alt="Bot" />
         <ion-label>
-          <p>{{ msg.text }}</p>
+          <markdown [data]="msg.text"></markdown>
+          <!-- <p>{{ msg.text }}</p> -->
         </ion-label>
       } @else {
         <ion-label>
@@ -17,6 +18,20 @@
 </ion-content>
 <ion-footer class="chat-footer">
   <ion-toolbar>
+    @if (folder === 'pdf-summarizer') {
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="mailOutline"></ion-icon>
+        <input
+        class="file-input"
+          type="file"
+          accept="application/pdf"
+          (change)="onFileSelected($event)"
+          placeholder="Upload PDF"
+        />
+      </ion-button>
+    </ion-buttons>
+  }
     <ion-input
       [(ngModel)]="newMessage"
       placeholder="Type your message..."
@@ -24,7 +39,7 @@
       clearInput
     ></ion-input>
     <ion-buttons slot="end">
-      <ion-button (click)="sendMessage()" [disabled]="!newMessage">
+      <ion-button (click)="sendMessage()" [disabled]="!newMessage && !selectedFile">
         Send
       </ion-button>
     </ion-buttons>

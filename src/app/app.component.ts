@@ -30,8 +30,13 @@ import { mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutlin
 export class AppComponent {
   public appPages = [
     {
-      title: 'New Chat',
-      url: '/folder/inbox',
+      title: 'Chat bot',
+      url: '/folder/chatbot',
+      icon: 'mail',
+    },
+     {
+      title: 'PDF-Summarizer',
+      url: '/folder/pdf-summarizer',
       icon: 'mail',
     },
   ];

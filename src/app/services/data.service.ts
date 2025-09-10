@@ -11,4 +11,8 @@ export class DataService {
   sendMessage(message: string) {
     return this.http.post(`${this.baseUrl}/query`, { query: message });
   }
+
+  sendFile(fileData: FormData) {
+    return this.http.post(`${this.baseUrl}/parse-pdf`, fileData); // Replace '/api/upload' with your backend endpoint
+  }
 }
